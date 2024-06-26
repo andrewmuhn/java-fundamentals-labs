@@ -3,16 +3,30 @@ package com.pluralsight.SandwichShop;
 import java.util.HashMap;
 
 public class CalculatePrice {
-    public static double[] calculatePrice(int size, double discountPercentage) {
-        double[] priceDiscountArr = new double[3];
-        HashMap<Integer, Double> sandwichBasePrices = new HashMap<Integer, Double>();
+    static double sandwichPrice;
+    static double discount;
+    static double sandwichBasePrice;
+    static HashMap<Integer, Double> sandwichBasePrices;
+    static HashMap<Integer, Double> sandwichLoadedPrices;
+    public static void calculatePrice(int size, boolean loaded, double discountPercentage) {
+        sandwichBasePrices = new HashMap<Integer, Double>();
         sandwichBasePrices.put(1, 5.45);
         sandwichBasePrices.put(2, 8.95);
-        double discount = sandwichBasePrices.get(size) * discountPercentage;
-        double sandwichPrice = sandwichBasePrices.get(size) - discount;
-        priceDiscountArr[0] = sandwichPrice;
-        priceDiscountArr[1] = discount;
-        priceDiscountArr[2] = sandwichBasePrices.get(size);
-        return priceDiscountArr;
+        sandwichLoadedPrices = new HashMap<Integer, Double>();
+        sandwichLoadedPrices.put(1, 1.00);
+        sandwichLoadedPrices.put(2, 1.75);
+        double loadedAddon = loaded ? sandwichLoadedPrices.get(size) : 0.00;
+        sandwichBasePrice = sandwichBasePrices.get(size) + loadedAddon;
+        discount = sandwichBasePrice * discountPercentage;
+        sandwichPrice = sandwichBasePrice - discount;
+    }
+    public static double getSandwichPrice() {
+        return sandwichPrice;
+    }
+    public static double getDiscount() {
+        return discount;
+    }
+    public static double getSandwichBasePrice() {
+        return sandwichBasePrice;
     }
 }

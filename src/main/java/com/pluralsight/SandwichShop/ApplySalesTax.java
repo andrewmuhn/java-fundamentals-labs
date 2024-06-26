@@ -2,12 +2,16 @@ package com.pluralsight.SandwichShop;
 
 public class ApplySalesTax {
     static double SALES_TAX = .0825;
-    public static double[] appleSalesTax (double sandwichPrice) {
-        double[] totalPriceArr = new double[2];
-        double salesTax = sandwichPrice * SALES_TAX;
-        double totalPrice = sandwichPrice + salesTax;
-        totalPriceArr[0] = totalPrice;
-        totalPriceArr[1] = salesTax;
-        return totalPriceArr;
+    static double salesTax;
+    static double totalPrice;
+    public static void applySalesTax (double sandwichPrice) {
+        salesTax = sandwichPrice * SALES_TAX;
+        totalPrice = sandwichPrice + salesTax;
+    }
+    public static double getSalesTax() {
+        return salesTax;
+    }
+    public static double getTotalPrice() {
+        return totalPrice;
     }
 }
