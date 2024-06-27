@@ -1,7 +1,7 @@
 package com.pluralsight.FavoriteMovies;
 
 public class MoviesArray {
-    static String[] moviesArr = {
+    private static String[] moviesArr = {
             "The Breakfast Club",
             "Fast Times at Ridgemont High",
             "Ferris Bueller's Day Off",
