@@ -1,11 +1,11 @@
 package com.pluralsight.CellPhoneService;
 
 public class CellPhone {
-    private static int serialNumber;
-    private static String model;
-    private static String carrier;
-    private static String phoneNumber;
-    private static String owner;
+    private int serialNumber;
+    private String model;
+    private String carrier;
+    private String phoneNumber;
+    private String owner;
 
     public CellPhone() {
         serialNumber = 0;
@@ -13,6 +13,10 @@ public class CellPhone {
         carrier = "";
         phoneNumber = "";
         owner = "";
+    }
+
+    public void dial(String phoneNumberParameter) {
+        System.out.printf("%s's phone is calling %s\n", owner, phoneNumberParameter);
     }
 
     public int getSerialNumber() {
