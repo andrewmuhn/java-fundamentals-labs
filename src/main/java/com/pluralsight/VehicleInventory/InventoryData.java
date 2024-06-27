@@ -1,6 +1,7 @@
 package com.pluralsight.VehicleInventory;
 
 public class InventoryData {
+    private static int counter = 6;
     static Vehicle[] inventory = new Vehicle[20];
     static {
         inventory[0] = new Vehicle(101121, "Ford Explorer", "Red", 45000, 135000f);

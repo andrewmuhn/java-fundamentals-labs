@@ -20,6 +20,10 @@ public class Menu {
             case 1:
                 ListAllVehicles.listAllVehicles();
                 break;
+            case 2:
+                System.out.println("Please enter a make and model: ");
+                FindVehicleByMakeModel.findVehicleByMakeModel(scanner.nextLine());
+                break;
             case 3:
                 System.out.print("Please enter the min price or leave blank for no minimum: ");
                 String minPriceStr = scanner.nextLine();
