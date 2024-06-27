@@ -14,4 +14,6 @@ public class InventoryData {
     public static Vehicle[] getInventory() {
         return inventory;
     }
+
+
 }

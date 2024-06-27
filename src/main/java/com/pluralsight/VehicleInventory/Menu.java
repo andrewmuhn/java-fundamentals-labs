@@ -13,19 +13,34 @@ public class Menu {
                        4 - Search by color\s
                        5 - Add a vehicle\s
                        6 - Quit\s
-                      Enter your command:\t
-                      """);
+                      Enter your command:\t""");
         int command = scanner.nextInt();
+        scanner.nextLine();
         switch(command) {
             case 1:
                 ListAllVehicles.listAllVehicles();
                 break;
-            case 2:
-//                FindVehicleByPrice.findVehiclesByPrice();
+            case 3:
+                System.out.print("Please enter the min price or leave blank for no minimum: ");
+                String minPriceStr = scanner.nextLine();
+                double minPrice = isInteger(minPriceStr) ? Integer.parseInt(minPriceStr) : 0;
+                System.out.print("Please enter the max price or leave blank for no maximum: ");
+                String maxPriceStr = scanner.nextLine();
+                double maxPrice = isInteger(maxPriceStr) ? Integer.parseInt(maxPriceStr) : Double.POSITIVE_INFINITY;
+                FindVehicleByPrice.findVehiclesByPrice(minPrice, maxPrice);
                 break;
 // etc
             case 6:
                 return;
+        }
+    }
+
+    public static boolean isInteger(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 }
