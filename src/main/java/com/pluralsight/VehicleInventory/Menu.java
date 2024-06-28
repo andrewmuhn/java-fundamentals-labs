@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
     static Scanner scanner = new Scanner(System.in);
-    public static void displayMenu() {
+    public static boolean displayMenu() {
         System.out.println("""
                       What do you want to do?\s
                        1 - List all vehicles\s
@@ -33,10 +33,17 @@ public class Menu {
                 double maxPrice = isInteger(maxPriceStr) ? Integer.parseInt(maxPriceStr) : Double.POSITIVE_INFINITY;
                 FindVehicleByPrice.findVehiclesByPrice(minPrice, maxPrice);
                 break;
-// etc
+            case 4:
+                System.out.println("Please enter a color: ");
+                FindVehicleByColor.findVehicleByColor(scanner.nextLine());
+                break;
+            case 5:
+                AddAVehicle.addAVehicle();
+                break;
             case 6:
-                return;
+                return false;
         }
+        return true;
     }
 
     public static boolean isInteger(String str) {

@@ -16,5 +16,9 @@ public class InventoryData {
         return inventory;
     }
 
+    public static void addAVehicle(Vehicle newVehicle){
+        inventory[counter] = newVehicle;
+        counter++;
+    }
 
 }
